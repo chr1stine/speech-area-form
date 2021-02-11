@@ -1,0 +1,15 @@
+{
+  "name": "mymodule",
+  "version": "1.0.0",
+  "description": "module to implement crud operations with nedb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christine Beydina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  }
+}
