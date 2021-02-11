@@ -1,6 +1,6 @@
 # speech-area-form
 
-## установка
+## что нужно
 
-* node.js
+* node
 * express.js
