@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    getAllQuestions('questions1.json').done(function (questions) {
+    getAllQuestions('questions.json').done(function (questions) {
         questions.forEach(question => {
             console.log(typeof question);
             addQuestion(question);
@@ -34,7 +34,7 @@ var ages = {
 var M = Array(8).fill(0).map(x=>Array(7).fill(0));
 
 //размер холста под график
-var size = 500;
+var size = 550;
 
 //выведеление одного блока с вопросом и ответами на экран
 function addQuestion(question){  
