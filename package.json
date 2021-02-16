@@ -4,8 +4,8 @@
   "description": "module to implement crud operations with nedb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon index.js"
+    "start":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christine Beydina",
   "license": "ISC",
