@@ -20,38 +20,30 @@
     <!-- my code -->
     <script type="text/javascript" src="form.js"></script>
 
+    <!-- my style-->
+    <link rel="stylesheet" href="style.css">
+
     <title>Анкета</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md row-sm">
 
-                <a id="adminBtn"
-                href="admin.html"
-                class="btn btn-lg position-fixed translate-middle bottom-0 end-0"
-                style="font-family: Nunito, Arial">Я админ</a>
+    <div>
+        <div id='questions' class='fs-5 fw-3'>
+            <h1 id='instruction'>Ответьте на вопросы и нажмите "график"</h1>
+            <form id='form'></form>
+        </div>
 
-                <form id="form"></form>
+        <div id='plot-with-buttons'>
+            <div id='plot'></div>
 
+            <div class='buttons'>
+                <button id="infoBtn" onclick="infoGraphic()" class="btn btn-primary btn-lg">График</button>
+
+                <a id="adminBtn" href="admin.html"
+                class="btn btn-lg">Я админ</a>
             </div>
-            
-            <div class="col-md row-sm sticky-md-top">
-
-                <div class="justify-content-center position-fixed">
-                    <div id="container"></div>
-                </div>
-
-                <div class="justify-content-center position-fixed">
-                    <button id="infoBtn"
-                    onclick="infoGraphic()"
-                    class="btn btn-primary btn-lg"
-                    style="font-family: Nunito, Arial">График</button>
-                </div>
-
-            </div>
-
         </div>
     </div>
+
 </body>
 </html>

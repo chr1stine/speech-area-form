@@ -1,0 +1,69 @@
+*{
+    font-family: Nunito, Arial;
+}
+
+#questions{
+    margin-top: 5%; /* верх посвободнее */
+    padding: 0 5%; /*чтоб заголовок с вопросам ине прилипал к краю контейнера*/
+}
+
+#instruction{
+    margin: 5% auto;
+}
+
+/* для больших десктопов */
+@media all and (min-width: 1500px){
+
+    body{
+        position: relative; /*чтобы работало fixed у plot-with-buttons*/
+    }
+
+    #questions{
+        width:60vw;
+        position: absolute; /*чтобы не занимать всю "горизонталь", а учитывать указанную ширину*/
+        padding: 0 10%; /* читабельный отступ */
+    }
+
+    #plot-with-buttons{
+        width:40vw;
+        left:50vw;
+        position: fixed;    /*застревает с отступом от левой стороны на указанную долю экранной ширины*/
+        text-align: center; /*выравнивает не текст, а неблочные элементы внутри себя*/
+    }
+}
+
+/* для норм десктопов */
+@media all and (min-width: 1210px) and (max-width: 1499px){
+
+    body{
+        position: relative; /*чтобы работало fixed у plot-with-buttons*/
+    }
+
+    #questions{
+        width:50vw;
+        position: absolute;/*чтобы не занимать всю "горизонталь", а учитывать указанную ширину*/
+    }
+
+    #plot-with-buttons{
+        width:50vw;
+        left:50vw;
+        position: fixed;   /*застревает с отступом от левой стороны на указанную долю экранной ширины*/
+        text-align: center; /*выравнивает не текст, а неблочные элементы внутри себя*/
+    }
+}
+
+/* для телефонов */
+@media all and (max-width: 1209px){
+
+    #questions{
+        width: 100vw; /* можно и не писать явно, но для понятности кода*/
+        padding: 0 15%; /* читабельный внутреннний отступ */
+    }
+
+    #plot-with-buttons{
+        width: 600px;
+        margin: 0 auto; /*выраванивает конейнер с графиком и кнопками по горизонтали внутри общего родителя*/
+        margin-bottom: 10%;
+        text-align: center; /*выравнивает не текст, а неблочные элементы внутри себя*/
+    }
+}

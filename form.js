@@ -10,14 +10,14 @@ $(document).ready(function() {
 });
 
 var spheres = {
-  "Когнитивные навыки":0,
-  "Моторные навыки":1,
-  "Понимание речи":2,
-  "Навыки просьбы":3,
-  "Совместное понимание":4,
-  "Имитация":5,
-  "Навыки артикуляции":6,
-  "Лингвистические навыки":7
+    "Имитация":0,
+    "Моторные навыки":1,
+    "Когнитивные навыки":2,
+    "Навыки просьбы":3,
+    "Совместное внимание":4,
+    "Понимание речи":5,
+    "Лингвистические навыки":6,
+    "Навыки артикуляции":7
 };
 
 var ages = {
@@ -34,7 +34,7 @@ var ages = {
 var M = Array(8).fill(0).map(x=>Array(7).fill(0));
 
 //размер холста под график
-var size = 550;
+var size = 600;
 
 //выведеление одного блока с вопросом и ответами на экран
 function addQuestion(question){  
@@ -42,17 +42,11 @@ function addQuestion(question){
     let div = document.createElement("div");
     
     div.setAttribute("id",spheres[question["sphere"]]+ages[question["age"]]);
-    div.setAttribute("class","mx-5");
-    
-    
+        
     let p = document.createElement("p");
-    p.setAttribute("class","fs-5 fw-3");
-    p.setAttribute("style","font-family: 'Nunito', Arial;");
     p.innerHTML = question["text"];
     div.appendChild(p);
   
-    
-
     let radio_group_div = document.createElement("div");
     radio_group_div.setAttribute("class","input_group mb-5");
     answers = ["Да","50/50","Нет"];  
@@ -74,8 +68,7 @@ function addQuestion(question){
         });
    
         label.setAttribute("for","answer"+spheres[question["sphere"]]+ages[question["age"]]+j);
-        label.setAttribute("class","mx-3 fs-5");
-        label.setAttribute("style","font-family: 'Nunito', Arial;");
+        label.setAttribute("class","mx-3");
         label.innerHTML = answers[j];
         
         radio_group_div.appendChild(button);
@@ -98,7 +91,7 @@ function getAllQuestions(questionsFile) {
 //настройка холста под график
 function setup(){
     var myCanvas = createCanvas(size, size);
-    myCanvas.parent("container");
+    myCanvas.parent('plot');
 }
 
 //заполнение матрицы ответов для графика данными с формы
@@ -137,19 +130,26 @@ function draw() {
     //метки сфер
     let a = PI/8;
     let step = 2*PI/8;
-    let offset = size/2 - 0.07*size;
+    let offset = size/2 - 0.06*size;
     textFont('Nunito');
     textSize(size/40);
     textStyle(BOLD);
     strokeWeight(0);
     textAlign(CENTER,CENTER);
+
     for (const [key, value] of Object.entries(spheres)) {
         let str = key.toString();
         if (str.toString().includes(' ')){
             str = str.replace(' ','\n');
         }
         fill(0, 100, 150);
-        text(str,x0-offset*sin(a), x0+offset*cos(a));
+
+        //костыль, чтоб надпись влезла
+        if (key=='Лингвистические навыки'){
+            text(str,x0-(offset-7)*sin(a), x0+35+offset*cos(a));
+        }else{
+            text(str,x0-offset*sin(a), x0+offset*cos(a));
+        }
         a += step;
     }
 
@@ -162,7 +162,6 @@ function draw() {
 
         //белый круг
         ellipse(x0,y0,r[j],r[j]);
-        // fill(255);
 
         //начальный угод и шаг угла
         a = 0;
@@ -170,16 +169,13 @@ function draw() {
 
         //заполняем необходимые ячейки
         for(i=0;i<Object.keys(spheres).length;i++){
-            // console.log('arc TO BE drawn at sphere '+i+' age '+j);
             switch(M[i][j]){
             case 2:
-                // console.log('weak arc drawn at sphere '+i+' age '+j);
                 fill(0,220,0);
                 arc(x0,y0,r[j],r[j],PI/2+step*(i),PI/2+step*(i+1));
                 fill(255);
                 break;
             case 3:
-                // console.log('strong arc drawn at sphere '+i+' age '+j);
                 fill(0,120,10);
                 arc(x0,y0,r[j],r[j],PI/2+step*(i),PI/2+step*(i+1));
                 fill(255);
