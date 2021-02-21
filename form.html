@@ -30,18 +30,18 @@
 <body>
 
     <div>
-        <div id='questions' class='fs-5 fw-3'>
-            <h1 id='instruction' class='fs-5 fw-3'>Ответьте на вопросы и нажмите "график"</h1>
+        <div id='questions'>
+            <h1 id='instruction'>Ответьте на вопросы и нажмите "график"</h1>
             <form id='form'></form>
         </div>
 
         <div id='plot-with-buttons'>
-            <div id='plot'></div>
+            <div id='plot' width='400' height='400'></div>
 
             <div class='buttons'>
-                <button id="infoBtn" class='fs-5 fw-3' onclick="infoGraphic()" class="btn btn-primary btn-lg">График</button>
+                <button id="infoBtn" onclick="infoGraphic()" class="btn btn-primary btn-lg">График</button>
 
-                <a id="adminBtn" class='fs-5 fw-3' href="admin.html"
+                <a id="adminBtn" href="admin.html"
                 class="btn btn-lg">Я админ</a>
             </div>
         </div>

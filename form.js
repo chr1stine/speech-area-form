@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    
+    //размер холста под график
+    var size = document.getElementById('plot').getAttribute('width');
 
     getAllQuestions('questions.json').done(function (questions) {
         questions.forEach(question => {
@@ -33,8 +36,6 @@ var ages = {
 //матрица данных
 var M = Array(8).fill(0).map(x=>Array(7).fill(0));
 
-//размер холста под график
-var size = 500;
 
 //выведеление одного блока с вопросом и ответами на экран
 function addQuestion(question){  
