@@ -31,7 +31,7 @@ var ages = {
 };
 
 //размер холста под график
-var size = 400;
+var size = 500;
 
 //матрица данных
 var M = Array(8).fill(0).map(x=>Array(7).fill(0));
