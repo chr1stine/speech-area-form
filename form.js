@@ -1,8 +1,5 @@
 $(document).ready(function() {
     
-    //размер холста под график
-    var size = document.getElementById('plot').getAttribute('width');
-
     getAllQuestions('questions.json').done(function (questions) {
         questions.forEach(question => {
             console.log(typeof question);
@@ -32,6 +29,9 @@ var ages = {
   "15-18":1,
   "18-21":0
 };
+
+//размер холста под график
+var size = 400;
 
 //матрица данных
 var M = Array(8).fill(0).map(x=>Array(7).fill(0));
